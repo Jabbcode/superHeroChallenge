@@ -1,14 +1,21 @@
 <div class="row d-flex justify-content-center">
-    <div class="col-6">
+    <div class="col-8 col-md-12">
         <div class="my-2">
             <h2>Login</h2>
         </div>
-        <form class="card shadow p-4">
+
+        <form class="card shadow p-4" 
+              autocomplete="off" 
+              [formGroup]="loginForm" 
+              (ngSubmit)="send()">
+
             <div class="mb-3 row">
                 <label class="col-form-label">Email</label>
                 <input type="email" 
-                       class="form-control">
-                <span class="form-text text-danger">
+                       class="form-control"
+                       formControlName="email">
+                <span class="form-text text-danger"
+                      *ngIf="fieldIsValid('email')">
                     The email is required
                 </span>
             </div>
@@ -16,8 +23,10 @@
             <div class="mb-3 row">
                 <label class="col-form-label">Password</label>
                 <input type="password" 
-                       class="form-control">
-                <span class="form-text text-danger">
+                       class="form-control"
+                       formControlName="password">
+                <span class="form-text text-danger"
+                      *ngIf="fieldIsValid('password')">
                     The password is required
                 </span>
             </div>
