@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import axios from 'axios';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { HttpClient } from '@angular/common/http';
 
 
 @Injectable({
@@ -11,7 +12,7 @@ export class AuthService {
 
   private _api = "http://challenge-react.alkemy.org/";
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private http:HttpClient) { }
 
   auth( email: string, password: string ) {
     

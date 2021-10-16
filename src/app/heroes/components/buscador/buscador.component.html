@@ -1,1 +1,41 @@
-<p>buscador works!</p>
+<div class="row d-flex justify-content-center">
+    <div class="col-8 col-md-12">
+        <div class="my-2">
+            <h2>Buscar Heroes</h2>
+        </div>
+
+        <form class="card shadow p-4" 
+              autocomplete="off" 
+              [formGroup]="BuscarForm" 
+              (ngSubmit)="send()">
+
+            <div class="mb-3 row">
+                <div class="col-10">
+                    <input type="text" 
+                           class="form-control"
+                           formControlName="busqueda">
+                    <span class="form-text text-danger"
+                        *ngIf="fieldIsValid('busqueda')">
+                        Ingrese el nombre del heroe que desea agregar al equipo
+                    </span>
+                </div>
+                <div class="col">
+                    <button type="submit" 
+                            class="btn btn-primary">
+                        Buscar
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row d-flex justify-content-center">
+    <div class="col-2 card m-1" *ngFor="let heroe of heroes">
+        <h4>{{ heroe.name }}</h4>
+        <img src="{{ heroe.image.url }}" class="w-100 fill" alt="{{ heroe.name }}">
+        <button>
+            Agregar
+        </button>
+    </div>
+</div>
