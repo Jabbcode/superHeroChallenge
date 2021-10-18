@@ -1,10 +1,4 @@
 export interface Heroe {
-    response:      string;
-    "results-for": string;
-    results:       Result;
-}
-
-export interface Result {
     id:          string;
     name:        string;
     powerstats:  Powerstats;

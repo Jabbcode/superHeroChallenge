@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HeroesService } from '../../services/heroes.service';
-
+import { Heroe } from '../../interfaces/interface';
 @Component({
   selector: 'app-equipo',
   templateUrl: './equipo.component.html',
@@ -8,25 +7,15 @@ import { HeroesService } from '../../services/heroes.service';
 })
 export class EquipoComponent implements OnInit {
 
-  equipo: any;
+  equipo: Heroe[] = [];
   powerstats: any;
 
-  constructor( private heroesService:HeroesService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    let equipo = localStorage.getItem('equipo');
 
-    console.log(equipo);
-
-    this.heroesService.getHeroesId( '20' )
-        .then( response =>  {
-          console.log( response.data ) 
-          this.equipo = response.data
-        })
-        .catch(function(err) {
-          console.log(err)
-        });
-
+    this.equipo = JSON.parse(localStorage.getItem('equipo') || '{}');
+    console.log(this.equipo)
   }
 
 }

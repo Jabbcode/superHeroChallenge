@@ -15,7 +15,7 @@
                            class="form-control"
                            formControlName="busqueda">
                     <span class="form-text text-danger"
-                        *ngIf="fieldIsValid('busqueda')">
+                        *ngIf="campoEsValido('busqueda')">
                         Ingrese el nombre del heroe que desea agregar al equipo
                     </span>
                 </div>
@@ -34,7 +34,7 @@
     <div class="col-2 card m-1" *ngFor="let heroe of heroes">
         <h4>{{ heroe.name }}</h4>
         <img src="{{ heroe.image.url }}" class="w-100 fill" alt="{{ heroe.name }}">
-        <button (click)="agregar(heroe.id)">
+        <button (click)="agregar(heroe)">
             Agregar
         </button>
     </div>

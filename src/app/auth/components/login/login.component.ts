@@ -14,6 +14,9 @@ export class LoginComponent implements OnInit {
     password: ['', [Validators.required] ],
   })
 
+  // Email: challenge@alkemy.org
+  // password: react
+
   constructor(
     private fb: FormBuilder,
     private authService: AuthService
