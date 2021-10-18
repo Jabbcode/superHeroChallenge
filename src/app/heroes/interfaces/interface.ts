@@ -1,7 +1,7 @@
 export interface Heroe {
     response:      string;
     "results-for": string;
-    results:       Result[];
+    results:       Result;
 }
 
 export interface Result {

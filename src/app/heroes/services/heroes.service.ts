@@ -16,4 +16,12 @@ export class HeroesService {
     return axios.get<any>( `${this._api}/search/${ busqueda }`)
          
   }
+
+  getHeroesId( id: string ) {
+    return axios.get<any>( `${this._api}/${ id }`);
+  }
+
+  getPowerStatsId( id: string ) {
+      return axios.get<any>( `${ this._api }/${ id }/powerstats`);
+  }
 }

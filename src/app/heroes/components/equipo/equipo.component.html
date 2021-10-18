@@ -1,1 +1,16 @@
-<p>equipo works!</p>
+<div class="row d-flex justify-content-center">
+    <div class="col-2 card m-1">
+        <h4>{{ equipo.name }}</h4>
+        <img src="{{ equipo.image.url }}" alt="{{ equipo.name }}">
+        <ul>
+            <p>Combate: </p><li>{{ equipo.powerstats.combat }}</li>
+            <p>Durabilidad: </p><li>{{ equipo.powerstats.durability }}</li>
+            <p>Inteligencia: </p><li>{{ equipo.powerstats.intelligence }}</li>
+            <p>Poder: </p><li>{{ equipo.powerstats.power }}</li>
+            <p>Velocidad: </p><li>{{ equipo.powerstats.speed }}</li>
+            <p>Fuerza: </p><li>{{ equipo.powerstats.strength }}</li>
+        </ul>
+        <button>ver</button>
+        <button>eliminar</button>
+    </div>
+</div>

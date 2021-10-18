@@ -34,7 +34,7 @@
     <div class="col-2 card m-1" *ngFor="let heroe of heroes">
         <h4>{{ heroe.name }}</h4>
         <img src="{{ heroe.image.url }}" class="w-100 fill" alt="{{ heroe.name }}">
-        <button>
+        <button (click)="agregar(heroe.id)">
             Agregar
         </button>
     </div>

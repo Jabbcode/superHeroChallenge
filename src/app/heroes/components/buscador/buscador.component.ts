@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Heroe } from '../../interfaces/interface';
 import { HeroesService } from '../../services/heroes.service';
+
 @Component({
   selector: 'app-buscador',
   templateUrl: './buscador.component.html',
@@ -14,6 +14,7 @@ export class BuscadorComponent implements OnInit {
   })
 
   heroes:any = [];
+  equipo: string[] = [];
 
   constructor( 
     private fb:FormBuilder,
@@ -25,6 +26,24 @@ export class BuscadorComponent implements OnInit {
   fieldIsValid( field: string ) {
     return this.BuscarForm.controls[field].errors 
            && this.BuscarForm.controls[field].touched;
+  }
+
+  agregar( id: string ) {
+    console.log(id)
+    let equipo: [] = JSON.parse(localStorage.getItem('equipo')!);
+    
+    if( !equipo ){
+      this.equipo.push(id);
+      localStorage.setItem('equipo', JSON.stringify(this.equipo));
+    }
+
+    if( equipo.length < 6 ) {
+      //TODO: Revisar que no se repitan los elementos
+      this.equipo.push(id);
+      localStorage.setItem('equipo', JSON.stringify(this.equipo));
+    }
+    
+    // return;
   }
 
   send() {
