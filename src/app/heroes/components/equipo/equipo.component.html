@@ -1,17 +1,42 @@
-<div class="row d-flex justify-content-center">
-    <div class="col-2 card m-1" *ngFor="let heroe of equipo">
-        
-        <h4>{{ heroe.name }}</h4>
-        <img src="{{ heroe.image.url }}" alt="{{ heroe.name }}">
-        <ul>
-            <p>Combate: </p><li>{{ heroe.powerstats.combat }}</li>
-            <p>Durabilidad: </p><li>{{ heroe.powerstats.durability }}</li>
-            <p>Inteligencia: </p><li>{{ heroe.powerstats.intelligence }}</li>
-            <p>Poder: </p><li>{{ heroe.powerstats.power }}</li>
-            <p>Velocidad: </p><li>{{ heroe.powerstats.speed }}</li>
-            <p>Fuerza: </p><li>{{ heroe.powerstats.strength }}</li>
-        </ul>
-        <button>ver</button>
-        <button>eliminar</button>
+<div class="card shadow-sm mb-2">
+    <div class="p-2">
+        <app-sidemenu></app-sidemenu>
     </div>
 </div>
+<div class="row d-flex justify-content-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+                <div>
+                    <h5>Estadisticas totales</h5>
+                    <app-powerstats [powerstats]="powerstats"></app-powerstats>
+                </div>
+                <div class="mt-2">
+                    <h5>Promedio de</h5>
+                    <app-peso-altura [pesoAltura]="pesoAltura" ></app-peso-altura>
+                </div>
+            </div>
+            <div class="col-9 d-flex flex-wrap" *ngIf="equipo.length !== 0">
+                <div class="card m-2 p-2 shadow-sm" style="width: 14rem;" *ngFor="let heroe of equipo">
+                    <img src="{{ heroe.image.url }}" class="card-img-top mt-2" alt="{{ heroe.name }}">
+                    <div class="card-body text-center">
+                        <h5 class="card-title badge bg-primary text-light px-4 py-2">{{ heroe.name }}</h5>
+                    </div>
+                    
+                    <app-powerstats [powerstats]="heroe.powerstats"></app-powerstats>
+            
+                    <div class="card-body d-flex justify-content-between">
+                        <button class="btn btn-primary" (click)="detalle(heroe.id)"><i class="far fa-eye"></i></button>
+                        <button class="btn btn-danger" (click)="eliminar(heroe)"><i class="far fa-trash-alt"></i></button>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="col-9 d-flex justify-content-center align-items-center" *ngIf="equipo.length === 0">
+                <h4>No posee heroes en el equipo</h4>
+            </div>
+            
+        </div>
+    </div>
+</div>
+

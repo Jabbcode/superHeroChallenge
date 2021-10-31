@@ -20,7 +20,23 @@ export class HeroesService {
   }
 
   getHeroeId( id: string ) {
-    return axios.get<Heroe>( `${this._api}/${ id }`);
+    return axios.get<Heroe>( `${this._api}/${ id }`); 
+  }
+
+  getHeroeAppearance( id: string ) {
+    return axios.get<Heroe>( `${this._api}/${ id }/appearance`); 
+  }
+
+  getHeroeBiography( id: string ) {
+    return axios.get<Heroe>( `${this._api}/${ id }/biography`); 
+  }
+
+  getHeroeWork( id: string ) {
+    return axios.get<Heroe>( `${this._api}/${ id }/work`); 
+  }
+
+  getHeroeImage( id: string ) {
+    return axios.get<Heroe>( `${this._api}/${ id }/image`); 
   }
 
   getPowerStatsId( id: string ) {

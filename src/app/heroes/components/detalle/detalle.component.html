@@ -1,1 +1,60 @@
-<p>detalle works!</p>
+<div class="card shadow-sm mb-2">
+  <div class="p-2">
+      <app-sidemenu></app-sidemenu>
+  </div>
+</div>
+<div class="container py-2">
+  <div class="row">
+    <div class="col-4 card">
+      <h2>{{ imagen.name }}</h2>
+      <img src="{{ imagen.url }}" style="height:90%" alt="{{ imagen.name }}">
+    </div>
+    <div class="col-8">
+      <div class="card mb-1">
+        <div class="card-header bg-info text-light">
+          Alias
+        </div>
+        <ul class="list-group list-group-flush" *ngFor="let item of biografia.aliases">
+          <li class="list-group-item">{{ item }}</li>
+        </ul>
+      </div>
+
+      <div class="card mb-1">
+        <div class="card-header bg-info text-light">
+          Altura
+        </div>
+        <ul class="list-group list-group-flush" >
+          <li class="list-group-item">{{ apariencia.height[0] }} - {{ apariencia.height[1] }}</li>
+        </ul>
+      </div>
+
+      <div class="card mb-1">
+        <div class="card-header bg-info text-light">
+          Peso
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">{{ apariencia.weight[0] }} - {{ apariencia.weight[1]}}</li>
+        </ul>
+      </div>
+
+      <div class="card mb-1">
+        <div class="card-header bg-info text-light">
+          Color de:
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Ojos: {{ apariencia.eye_color }}</li>
+          <li class="list-group-item">Cabello: {{ apariencia.hair_color }}</li>
+        </ul>
+      </div>
+
+      <div class="card mb-1">
+        <div class="card-header bg-info text-light">
+          Trabaja en
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">{{ trabajo.base }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

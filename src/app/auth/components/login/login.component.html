@@ -1,33 +1,33 @@
-<div class="row d-flex justify-content-center">
-    <div class="col-8 col-md-12">
+<div class="row d-flex justify-content-center align-item-center">
+    <div class="col-6">
         <div class="my-2">
-            <h2>Login</h2>
+            <h2>Iniciar sesion</h2>
         </div>
 
-        <form class="card shadow p-4" 
+        <form class="card shadow-sm p-4" 
               autocomplete="off" 
               [formGroup]="loginForm" 
               (ngSubmit)="send()">
 
             <div class="mb-3 row">
-                <label class="col-form-label">Email</label>
+                <label class="col-form-label">Correo electronico</label>
                 <input type="email" 
                        class="form-control"
                        formControlName="email">
                 <span class="form-text text-danger"
                       *ngIf="fieldIsValid('email')">
-                    The email is required
+                    El correo es requerido
                 </span>
             </div>
 
             <div class="mb-3 row">
-                <label class="col-form-label">Password</label>
+                <label class="col-form-label">Contraseña</label>
                 <input type="password" 
                        class="form-control"
                        formControlName="password">
                 <span class="form-text text-danger"
                       *ngIf="fieldIsValid('password')">
-                    The password is required
+                    La contraseña es requerida
                 </span>
             </div>
 
@@ -35,7 +35,7 @@
                 <div class="col">
                     <button type="submit" 
                             class="btn btn-primary float-end">
-                        Send
+                        Entrar
                     </button>
                 </div>
             </div>

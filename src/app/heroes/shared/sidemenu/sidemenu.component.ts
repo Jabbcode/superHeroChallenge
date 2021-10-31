@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 interface MenuItem {
-  texto: string;
-  ruta: string;
+  texto: string,
+  ruta: string
 }
 
 @Component({
@@ -12,24 +13,14 @@ interface MenuItem {
 })
 export class SidemenuComponent implements OnInit {
 
-  menu: MenuItem[] = [
-    {
-      texto: 'Equipo',
-      ruta: './heroes/equipo'
-    },
-    {
-      texto: 'Buscador',
-      ruta: './heroes/buscador'
-    },
-    {
-      texto: 'Detalle',
-      ruta: './heroes/:id'
-    },
-  ]
-
-  constructor() { }
+  constructor( private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  cerrarSesion() {
+    localStorage.removeItem('token');
+    this.router.navigate(['./auth/login']);
   }
 
 }
