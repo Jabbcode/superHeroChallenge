@@ -16,7 +16,10 @@ export class HeroesService {
   constructor() { }
 
   getHeroes( busqueda: string) {
-    return axios.get<any>( `${this._api}/search/${ busqueda }`)
+    return axios.get<any>( `${this._api}/search/${ busqueda }`,{ 
+      headers: { "Access-Control-Allow-Origin" : "*",
+                 "Content-type": "Application/json", 
+                }})
   }
 
   getHeroeId( id: string ) {
